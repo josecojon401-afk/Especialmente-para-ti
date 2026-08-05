@@ -38,7 +38,7 @@ function showDay(day){
   dateTitle.textContent=label.charAt(0).toUpperCase()+label.slice(1);
   dayNumber.textContent=`Día ${currentDay} de 31`;
   styleBadge.textContent=item[0];
-  message.textContent=item[1];
+  typeMessage(item[1]);
   progressBar.style.width=`${(currentDay/31)*100}%`;
   renderCalendar();
   window.scrollTo({top:0,behavior:'smooth'});
@@ -107,3 +107,15 @@ closingBtn.addEventListener('click', ()=>{
 document.getElementById('openBtn').addEventListener('click', ()=>{
   if(bgMusic && bgMusic.src) bgMusic.play().catch(()=>{});
 });
+
+const reasons=["Tu amistad hace que los días comunes se sientan un poco más bonitos.","Tu manera de escuchar hace sentir importante a quien está contigo.","Tienes una esencia auténtica que no necesita compararse con nadie.","Tu sonrisa puede cambiar el ánimo de un día entero.","Sabes convertir pequeños momentos en recuerdos especiales.","Tu corazón conserva ternura incluso después de los días difíciles.","Eres de esas personas cuya presencia se agradece de verdad.","Tu amistad inspira confianza, cariño y tranquilidad.","Tienes una forma especial de dejar huellas bonitas.","Porque simplemente siendo tú ya haces una diferencia."];
+let reasonIndex=0, typingTimer;
+setTimeout(()=>document.getElementById('splash').classList.add('hide'),2800);
+function typeMessage(text){clearInterval(typingTimer);message.textContent='';message.classList.add('typing');let i=0;typingTimer=setInterval(()=>{message.textContent+=text[i++]||'';if(i>=text.length){clearInterval(typingTimer);message.classList.remove('typing')}},18)}
+function celebrate(count=55){const icons=['✦','♡','✧','❀'];for(let i=0;i<count;i++){const p=document.createElement('span');p.className='particle';p.textContent=icons[Math.floor(Math.random()*icons.length)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*18)+'px';p.style.color=['#d7a4b6','#f0d4dd','#b89a67','#ffffff'][Math.floor(Math.random()*4)];p.style.setProperty('--x',(Math.random()*160-80)+'px');p.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),5200)}}
+const reasonBtn=document.getElementById('reasonBtn');if(reasonBtn)reasonBtn.addEventListener('click',()=>{reasonIndex=(reasonIndex+1)%reasons.length;const el=document.getElementById('reasonText');el.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:450});el.textContent=reasons[reasonIndex]});
+if(letterBtn)letterBtn.addEventListener('click',()=>letterBtn.classList.toggle('open'));
+const celebrateBtn=document.getElementById('celebrateBtn');if(celebrateBtn)celebrateBtn.addEventListener('click',()=>celebrate(70));
+document.querySelectorAll('.memory-grid img,.photo-frame img').forEach(img=>img.addEventListener('click',()=>{document.getElementById('lightboxImage').src=img.src;document.getElementById('lightbox').classList.add('open')}));document.getElementById('closeLightbox').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open')});
+const musicBtn=document.getElementById('musicBtn');musicBtn.addEventListener('click',()=>{if(bgMusic.paused){bgMusic.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{})}else{bgMusic.pause();musicBtn.classList.remove('playing')}});
+const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate(38)};

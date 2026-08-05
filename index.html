@@ -7,7 +7,7 @@
 <title>Un pequeño rincón para Madelyn</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><div id="splash" class="splash"><div>✦　✧　✦</div><p>Hay personas que llegan a nuestra vida</p><h1>y hacen más bonitos nuestros días.</h1><span>Este regalo es para ti, Madelyn.</span></div><button id="musicBtn" class="music-btn" aria-label="Música">♫</button><div id="particles" aria-hidden="true"></div>
 <div class="petals"></div>
 <main class="app">
   <section id="cover" class="screen active">
@@ -72,7 +72,7 @@
 
     <div class="calendar" id="calendar"></div>
     <div class="little-letter">
-      <button id="letterBtn" class="letter-button">💌 Abrir una pequeña carta</button>
+      <button id="letterBtn" class="envelope" aria-label="Abrir carta"><span class="flap"></span><span class="seal">M</span></button><p class="open-letter-label">Toca el sobre para abrir la carta</p>
       <div id="letterContent" class="letter-content">
         <p>Madelyn, no hace falta una ocasión especial para agradecer una amistad bonita. Este bloc nació como un pequeño recordatorio de que hay personas que merecen palabras bonitas incluso en los días normales.</p>
         <p>Que agosto te regale momentos que quieras guardar para siempre. 🌷</p>
@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div class="visual-preview">
+    <section class="premium-reasons"><p class="eyebrow">UN RECORDATORIO ESPECIAL</p><h3>Razones por las que eres especial</h3><p id="reasonText">Tu amistad hace que los días comunes se sientan un poco más bonitos.</p><button id="reasonBtn" class="primary">Descubrir otra razón ✦</button></section><div class="visual-preview">
       <h3>✨ Diseño especial del regalo</h3>
       <img src="assets/regalo-madelyn-preview.png" alt="Diseño visual del regalo digital para Madelyn">
     </div>
@@ -99,11 +99,11 @@
       <h3>Gracias por tu amistad, Madelyn</h3>
       <p>Este pequeño regalo no intenta decirlo todo; solo quiere recordarte algo sencillo: eres una persona valiosa y tu amistad merece ser celebrada.</p>
       <p>Que cada nuevo día encuentre una razón para hacerte sonreír. Y cuando llegue un día difícil, recuerda que también hay personas deseando verte bien. 💕</p>
-      <span>Con cariño, siempre.</span>
+      <span>Con cariño, siempre.</span><button id="celebrateBtn" class="primary celebrate">Celebrar nuestra amistad ♡</button>
     </div>
   </section>
 <audio id="bgMusic" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
-</main>
+</main><div id="lightbox" class="lightbox"><button id="closeLightbox">×</button><img id="lightboxImage" alt="Fotografía ampliada"></div>
 <script src="script.js"></script>
 </body>
 </html>
