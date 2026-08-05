@@ -119,3 +119,57 @@ const celebrateBtn=document.getElementById('celebrateBtn');if(celebrateBtn)celeb
 document.querySelectorAll('.memory-grid img,.photo-frame img').forEach(img=>img.addEventListener('click',()=>{document.getElementById('lightboxImage').src=img.src;document.getElementById('lightbox').classList.add('open')}));document.getElementById('closeLightbox').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open')});
 const musicBtn=document.getElementById('musicBtn');musicBtn.addEventListener('click',()=>{if(bgMusic.paused){bgMusic.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{})}else{bgMusic.pause();musicBtn.classList.remove('playing')}});
 const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate(38)};
+
+
+(function(){
+  const body = document.body;
+  const intro = document.getElementById('luxuryIntro');
+  const enter = document.getElementById('enterLuxury');
+  const petals = document.getElementById('luxuryPetals');
+  const musicBtn = document.getElementById('luxuryMusicBtn');
+  const audio = document.getElementById('luxuryAudio');
+  const celebrate = document.getElementById('luxuryCelebrate');
+
+  function petalBurst(count=24){
+    if(!petals) return;
+    const symbols = ['🌸','🌷','♡','✦'];
+    for(let i=0;i<count;i++){
+      const p = document.createElement('span');
+      p.className = 'luxury-petal';
+      p.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      p.style.left = Math.random()*100 + 'vw';
+      p.style.fontSize = (13 + Math.random()*20) + 'px';
+      p.style.animationDuration = (4 + Math.random()*5) + 's';
+      p.style.animationDelay = (Math.random()*1.2) + 's';
+      petals.appendChild(p);
+      setTimeout(()=>p.remove(),10000);
+    }
+  }
+
+  function enterExperience(){
+    body.classList.add('luxury-ready');
+    if(intro) intro.classList.add('hide');
+    petalBurst(36);
+  }
+
+  if(enter) enter.addEventListener('click', enterExperience);
+  if(celebrate) celebrate.addEventListener('click', ()=>petalBurst(60));
+
+  if(musicBtn && audio){
+    musicBtn.addEventListener('click', async ()=>{
+      if(audio.paused){
+        try{
+          await audio.play();
+          musicBtn.textContent='🔊 Música';
+        }catch(e){
+          musicBtn.textContent='🎵 Agrega music.mp3';
+        }
+      }else{
+        audio.pause();
+        musicBtn.textContent='🎵 Música';
+      }
+    });
+  }
+
+  setInterval(()=>petalBurst(2),2600);
+})();

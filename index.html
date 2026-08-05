@@ -7,7 +7,25 @@
 <title>Un pequeño rincón para Madelyn</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body><div id="splash" class="splash"><div>✦　✧　✦</div><p>Hay personas que llegan a nuestra vida</p><h1>y hacen más bonitos nuestros días.</h1><span>Este regalo es para ti, Madelyn.</span></div><button id="musicBtn" class="music-btn" aria-label="Música">♫</button><div id="particles" aria-hidden="true"></div>
+<body>
+
+<div id="luxuryIntro" class="luxury-intro">
+  <div class="luxury-stars"></div>
+  <div class="luxury-intro-content">
+    <p class="luxury-kicker">UNA EXPERIENCIA CREADA ESPECIALMENTE PARA TI</p>
+    <h1><span>Madelyn</span></h1>
+    <p class="luxury-phrase">Hay amistades que convierten los días sencillos en recuerdos inolvidables.</p>
+    <button id="enterLuxury" class="luxury-enter">Entrar a tu regalo ✨</button>
+  </div>
+</div>
+<div id="luxuryPetals" class="luxury-petals" aria-hidden="true"></div>
+<div class="luxury-music">
+  <button id="luxuryMusicBtn" aria-label="Activar o desactivar música">🎵 Música</button>
+</div>
+<audio id="luxuryAudio" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div id="splash" class="splash"><div>✦　✧　✦</div><p>Hay personas que llegan a nuestra vida</p><h1>y hacen más bonitos nuestros días.</h1><span>Este regalo es para ti, Madelyn.</span></div><button id="musicBtn" class="music-btn" aria-label="Música">♫</button><div id="particles" aria-hidden="true"></div>
 <div class="petals"></div>
 <main class="app">
   <section id="cover" class="screen active">
@@ -130,6 +148,16 @@
 <section class="madelyn-premium-v2">
   <p class="eyebrow">NUEVA PORTADA PREMIUM</p>
   <img src="assets/personalizacion-premium-v2.png" alt="Nueva portada personalizada para Madelyn">
+</section>
+
+
+<section class="luxury-final">
+  <div class="luxury-final-card">
+    <span class="luxury-crown">✦</span>
+    <h2>Gracias por tu amistad, Madelyn</h2>
+    <p>Que este pequeño rincón te recuerde siempre lo especial, valiosa y querida que eres.</p>
+    <button id="luxuryCelebrate" class="luxury-enter">Celebrar nuestra amistad 💕</button>
+  </div>
 </section>
 
 </body>
