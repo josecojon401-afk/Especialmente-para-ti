@@ -47,11 +47,11 @@ function showDay(day){
 function openNotes(day=defaultDay){
   cover.classList.remove('active'); notes.classList.add('active'); showDay(day);
 }
-openBtn.addEventListener('click',()=>openNotes());
-backBtn.addEventListener('click',()=>{notes.classList.remove('active');cover.classList.add('active');});
-todayBtn.addEventListener('click',()=>showDay(defaultDay));
-prevBtn.addEventListener('click',()=>showDay(currentDay-1));
-nextBtn.addEventListener('click',()=>showDay(currentDay+1));
+if(openBtn) openBtn.addEventListener('click',()=>openNotes());
+if(backBtn) backBtn.addEventListener('click',()=>{notes.classList.remove('active');cover.classList.add('active');});
+if(todayBtn) todayBtn.addEventListener('click',()=>showDay(defaultDay));
+if(prevBtn) prevBtn.addEventListener('click',()=>showDay(currentDay-1));
+if(nextBtn) nextBtn.addEventListener('click',()=>showDay(currentDay+1));
 document.addEventListener('keydown',e=>{
   if(!notes.classList.contains('active')) return;
   if(e.key==='ArrowLeft')showDay(currentDay-1);
@@ -69,7 +69,7 @@ function surprise(){
 }
 if (surpriseBtn) surpriseBtn.addEventListener('click', surprise);
 if (surpriseInNotes) surpriseInNotes.addEventListener('click', surprise);
-letterBtn.addEventListener('click', ()=>{
+if(letterBtn) letterBtn.addEventListener('click', ()=>{
   letterContent.classList.toggle('open');
   letterBtn.textContent = letterContent.classList.contains('open')
     ? '💗 Cerrar la pequeña carta'
@@ -92,10 +92,10 @@ function openGift(){
     giftIntro.classList.add('visible');
   },700);
 }
-giftBox.addEventListener('click', openGift);
-giftBox.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') openGift(); });
+if(giftBox) giftBox.addEventListener('click', openGift);
+if(giftBox) giftBox.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') openGift(); });
 
-closingBtn.addEventListener('click', ()=>{
+if(closingBtn) closingBtn.addEventListener('click', ()=>{
   closingMessage.classList.toggle('open');
   closingBtn.textContent = closingMessage.classList.contains('open')
     ? '💗 Ocultar mensaje final'
@@ -104,7 +104,7 @@ closingBtn.addEventListener('click', ()=>{
 
 /* Si colocas un archivo music.mp3 junto a index.html, intentará reproducirlo
    al entrar al regalo; los navegadores pueden exigir una interacción del usuario. */
-document.getElementById('openBtn').addEventListener('click', ()=>{
+if(document.getElementById('openBtn')) document.getElementById('openBtn').addEventListener('click', ()=>{
   if(bgMusic && bgMusic.src) bgMusic.play().catch(()=>{});
 });
 
@@ -116,8 +116,8 @@ function celebrate(count=55){const icons=['✦','♡','✧','❀'];for(let i=0;i
 const reasonBtn=document.getElementById('reasonBtn');if(reasonBtn)reasonBtn.addEventListener('click',()=>{reasonIndex=(reasonIndex+1)%reasons.length;const el=document.getElementById('reasonText');el.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:450});el.textContent=reasons[reasonIndex]});
 if(letterBtn)letterBtn.addEventListener('click',()=>letterBtn.classList.toggle('open'));
 const celebrateBtn=document.getElementById('celebrateBtn');if(celebrateBtn)celebrateBtn.addEventListener('click',()=>celebrate(70));
-document.querySelectorAll('.memory-grid img,.photo-frame img').forEach(img=>img.addEventListener('click',()=>{document.getElementById('lightboxImage').src=img.src;document.getElementById('lightbox').classList.add('open')}));document.getElementById('closeLightbox').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open')});
-const musicBtn=document.getElementById('musicBtn');musicBtn.addEventListener('click',()=>{if(bgMusic.paused){bgMusic.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{})}else{bgMusic.pause();musicBtn.classList.remove('playing')}});
+const lightbox=document.getElementById('lightbox'),lightboxImage=document.getElementById('lightboxImage'),closeLightbox=document.getElementById('closeLightbox');if(lightbox&&lightboxImage){document.querySelectorAll('.memory-grid img,.photo-frame img').forEach(img=>img.addEventListener('click',()=>{lightboxImage.src=img.src;lightbox.classList.add('open')}));if(closeLightbox)closeLightbox.addEventListener('click',()=>lightbox.classList.remove('open'));lightbox.addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open')});}
+const musicBtn=document.getElementById('musicBtn');if(musicBtn&&bgMusic)musicBtn.addEventListener('click',()=>{if(bgMusic.paused){bgMusic.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{})}else{bgMusic.pause();musicBtn.classList.remove('playing')}});
 const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate(38)};
 
 
