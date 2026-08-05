@@ -67,8 +67,8 @@ function surprise(){
   const randomDay = Math.floor(Math.random()*31)+1;
   openNotes(randomDay);
 }
-surpriseBtn.addEventListener('click', surprise);
-surpriseInNotes.addEventListener('click', surprise);
+if (surpriseBtn) surpriseBtn.addEventListener('click', surprise);
+if (surpriseInNotes) surpriseInNotes.addEventListener('click', surprise);
 letterBtn.addEventListener('click', ()=>{
   letterContent.classList.toggle('open');
   letterBtn.textContent = letterContent.classList.contains('open')
