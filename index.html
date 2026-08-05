@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d98aa6">
+<title>Un pequeño rincón para Madelyn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="luxury-locked">
+
+<div id="luxuryIntro" class="luxury-intro">
+  <div class="luxury-stars"></div>
+  <div class="luxury-intro-content">
+    <p class="luxury-kicker">UNA EXPERIENCIA CREADA ESPECIALMENTE PARA TI</p>
+    <h1><span>Madelyn</span></h1>
+    <p class="luxury-phrase">Hay amistades que convierten los días sencillos en recuerdos inolvidables.</p>
+    <button id="enterLuxury" class="luxury-enter">Entrar a tu regalo ✨</button>
+  </div>
+</div>
+<div id="luxuryPetals" class="luxury-petals" aria-hidden="true"></div>
+<div class="luxury-music">
+  <button id="luxuryMusicBtn" aria-label="Activar o desactivar música">🎵 Música</button>
+</div>
+<audio id="luxuryAudio" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div id="particles" aria-hidden="true"></div>
+<div class="petals"></div>
+<main class="app">
+  <section id="cover" class="screen active">
+    <div class="gift-scene" id="giftScene">
+      <div class="floating-sparkles">✦　✧　♡　✧　✦</div>
+      <div class="gift-box" id="giftBox" role="button" tabindex="0" aria-label="Abrir regalo">
+        <div class="gift-lid"></div>
+        <div class="gift-body"><span class="ribbon-v"></span><span class="ribbon-h"></span></div>
+        <div class="gift-bow">🎀</div>
+      </div>
+      <p class="gift-tap">Toca el regalo para abrirlo</p>
+    </div>
+
+    <div id="giftIntro" class="gift-intro">
+      <p class="eyebrow">UN DETALLE HECHO CON CARIÑO</p>
+      <div class="flower">🌷</div>
+      <h1>Para <span>Madelyn</span></h1>
+      <p class="subtitle">No necesitas una fecha especial para recibir un detalle especial.</p>
+
+      <div class="cover-card">
+        <div class="photo-gallery" aria-label="Fotografías de Madelyn">
+          <div class="photo-frame featured"><img src="assets/madelyn-01.jpg" alt="Fotografía de Madelyn"></div>
+          <div class="photo-frame second"><img src="assets/madelyn-02.jpg" alt="Fotografía de Madelyn"></div>
+        </div>
+        <div class="cover-message">
+          <p>“Hay personas que llegan a nuestra vida y, sin darse cuenta, hacen que algunos días sean más bonitos.”</p>
+          <strong>Este pequeño regalo digital fue creado especialmente para ti. 💕</strong>
+        </div>
+      </div>
+
+      <button id="openBtn" class="primary">Entrar a mi regalo 💌</button>
+      <p class="hint">Dos recuerdos para comenzar este pequeño regalo y un mensaje diferente para cada día de agosto.</p>
+    </div>
+  </section>
+
+  <section id="notes" class="screen">
+    <header>
+      <button id="backBtn" class="icon-btn" aria-label="Volver">←</button>
+      <div>
+        <p class="eyebrow">PARA MADELYN</p>
+        <h2 id="dateTitle"></h2>
+      </div>
+      <button id="todayBtn" class="icon-btn" aria-label="Ir a hoy">⌂</button>
+    </header>
+
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="card" id="card">
+      <div class="card-top">
+        <span id="styleBadge"></span>
+        <span id="dayNumber"></span>
+      </div>
+      <div class="sparkle">✦</div>
+      <p id="message"></p>
+      <div class="signature">Con cariño, para ti ♡</div>
+    </div>
+
+    <div class="navigation">
+      <button id="surpriseInNotes" class="ghost">✨ Sorpresa</button>
+      <button id="prevBtn" class="secondary">← Anterior</button>
+      <button id="nextBtn" class="primary">Siguiente →</button>
+    </div>
+
+    <div class="calendar" id="calendar"></div>
+    <div class="little-letter">
+      <button id="letterBtn" class="envelope" aria-label="Abrir carta"><span class="flap"></span><span class="seal">M</span></button><p class="open-letter-label">Toca el sobre para abrir la carta</p>
+      <div id="letterContent" class="letter-content">
+        <p>Madelyn, no hace falta una ocasión especial para agradecer una amistad bonita. Este bloc nació como un pequeño recordatorio de que hay personas que merecen palabras bonitas incluso en los días normales.</p>
+        <p>Que agosto te regale momentos que quieras guardar para siempre. 🌷</p>
+        <span>Con mucho cariño ♡</span>
+      </div>
+    </div>
+
+    <section class="premium-reasons"><p class="eyebrow">UN RECORDATORIO ESPECIAL</p><h3>Razones por las que eres especial</h3><p id="reasonText">Tu amistad hace que los días comunes se sientan un poco más bonitos.</p><button id="reasonBtn" class="primary">Descubrir otra razón ✦</button></section><div class="visual-preview">
+      <h3>✨ Diseño especial del regalo</h3>
+      <img src="assets/regalo-madelyn-preview.png" alt="Diseño visual del regalo digital para Madelyn">
+    </div>
+    <div class="memories">
+      <h3>📷 Un par de recuerdos</h3>
+      <p>Dos fotografías guardadas con cariño en este pequeño rincón.</p>
+      <div class="memory-grid">
+        <img src="assets/madelyn-01.jpg" alt="Primer recuerdo de Madelyn">
+        <img src="assets/madelyn-02.jpg" alt="Segundo recuerdo de Madelyn">
+      </div>
+    </div>
+    <p class="footer-note">Agosto puede terminar, pero los buenos deseos no tienen fecha. ✨</p>
+    <button id="closingBtn" class="closing-button">🎁 Ver el mensaje final</button>
+    <div id="closingMessage" class="closing-message">
+      <div class="closing-flower">🌷</div>
+      <h3>Gracias por tu amistad, Madelyn</h3>
+      <p>Este pequeño regalo no intenta decirlo todo; solo quiere recordarte algo sencillo: eres una persona valiosa y tu amistad merece ser celebrada.</p>
+      <p>Que cada nuevo día encuentre una razón para hacerte sonreír. Y cuando llegue un día difícil, recuerda que también hay personas deseando verte bien. 💕</p>
+      <span>Con cariño, siempre.</span><button id="celebrateBtn" class="primary celebrate">Celebrar nuestra amistad ♡</button>
+    </div>
+    <section class="luxury-final">
+      <div class="luxury-final-card">
+        <span class="luxury-crown">✦</span>
+        <h2>Gracias por tu amistad, Madelyn</h2>
+        <p>Que este pequeño rincón te recuerde siempre lo especial, valiosa y querida que eres.</p>
+        <button id="luxuryCelebrate" class="luxury-enter">Celebrar nuestra amistad 💕</button>
+      </div>
+    </section>
+
+  </section>
+<audio id="bgMusic" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
+
+<section class="madelyn-premium">
+  <p class="eyebrow">EDICIÓN ESPECIAL PARA MADELYN</p>
+  <h3>Un rincón elegante creado para celebrar tu amistad</h3>
+  <img src="assets/personalizacion-premium-madelyn.png"
+       alt="Personalización elegante del regalo digital para Madelyn">
+</section>
+
+
+<section class="memory-feature">
+  <p class="eyebrow">UN RECUERDO ESPECIAL</p>
+  <div class="memory-feature-card">
+    <img src="assets/madelyn-nueva-foto.jpg"
+         alt="Fotografía compartida con Madelyn">
+    <div>
+      <h3>Gracias por compartir momentos que se convierten en recuerdos</h3>
+      <p>Esta fotografía guarda una ocasión especial y representa una amistad que valoro profundamente.</p>
+    </div>
+  </div>
+</section>
+
+</main><div id="lightbox" class="lightbox"><button id="closeLightbox">×</button><img id="lightboxImage" alt="Fotografía ampliada"></div>
+<script src="script.js"></script>
+</body>
+</html>
