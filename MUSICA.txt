@@ -1,0 +1,3 @@
+MÚSICA OPCIONAL
+Si deseas música de fondo, coloca un archivo llamado "music.mp3" en esta misma carpeta, junto a index.html.
+Usa una pista de la que tengas permiso para utilizar.
