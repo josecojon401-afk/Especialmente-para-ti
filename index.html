@@ -20,11 +20,9 @@
 </div>
 <div id="luxuryPetals" class="luxury-petals" aria-hidden="true"></div>
 <div class="luxury-music">
-  <button id="luxuryMusicBtn" aria-label="Activar o desactivar música">🎵 Música</button>
+  <button id="luxuryMusicBtn" aria-label="Activar o desactivar música">🎵 Música</button><span id="audioStatus" class="audio-status" aria-live="polite"></span>
 </div>
-<audio id="luxuryAudio" loop preload="none">
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+
 <div id="particles" aria-hidden="true"></div>
 <div class="petals"></div>
 <main class="app">
@@ -100,7 +98,7 @@
 
     <section class="premium-reasons"><p class="eyebrow">UN RECORDATORIO ESPECIAL</p><h3>Razones por las que eres especial</h3><p id="reasonText">Tu amistad hace que los días comunes se sientan un poco más bonitos.</p><button id="reasonBtn" class="primary">Descubrir otra razón ✦</button></section><div class="visual-preview">
       <h3>✨ Diseño especial del regalo</h3>
-      <img src="assets/regalo-madelyn-preview.png" alt="Diseño visual del regalo digital para Madelyn">
+      <img src="assets/regalo-madelyn-preview.png?v=4" alt="Diseño visual del regalo digital para Madelyn">
     </div>
     <div class="memories">
       <h3>📷 Un par de recuerdos</h3>
@@ -129,12 +127,15 @@
     </section>
 
   </section>
-<audio id="bgMusic" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
+<audio id="bgMusic" loop preload="metadata">
+  <source src="music.mp3?v=4" type="audio/mpeg">
+  Tu navegador no puede reproducir este audio.
+</audio>
 
 <section class="madelyn-premium">
   <p class="eyebrow">EDICIÓN ESPECIAL PARA MADELYN</p>
   <h3>Un rincón elegante creado para celebrar tu amistad</h3>
-  <img src="assets/personalizacion-premium-madelyn.png"
+  <img src="assets/personalizacion-premium-madelyn.png?v=4"
        alt="Personalización elegante del regalo digital para Madelyn">
 </section>
 

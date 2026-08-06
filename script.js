@@ -81,7 +81,7 @@ const giftScene = document.getElementById('giftScene');
 const giftIntro = document.getElementById('giftIntro');
 const closingBtn = document.getElementById('closingBtn');
 const closingMessage = document.getElementById('closingMessage');
-const bgMusic = document.getElementById('bgMusic');
+const bgMusic = document.getElementById('legacyBgMusic');
 
 function openGift(){
   if(giftScene.classList.contains('opened')) return;
@@ -126,8 +126,8 @@ const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate
   const intro = document.getElementById('luxuryIntro');
   const enter = document.getElementById('enterLuxury');
   const petals = document.getElementById('luxuryPetals');
-  const musicBtn = document.getElementById('luxuryMusicBtn');
-  const audio = document.getElementById('luxuryAudio');
+  const musicBtn = document.getElementById('legacyLuxuryMusicBtn');
+  const audio = document.getElementById('legacyLuxuryAudio');
   const celebrate = document.getElementById('luxuryCelebrate');
 
   function petalBurst(count=24){
@@ -172,4 +172,40 @@ const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate
   }
 
   setInterval(()=>petalBurst(2),2600);
+})();
+
+
+(function(){
+  const button = document.getElementById('luxuryMusicBtn');
+  const audio = document.getElementById('bgMusic');
+  const status = document.getElementById('audioStatus');
+  if(!button || !audio) return;
+
+  const setStatus = text => { if(status) status.textContent = text; };
+
+  audio.addEventListener('canplay', ()=>setStatus('Audio listo'));
+  audio.addEventListener('playing', ()=>{
+    button.textContent = '🔊 Pausar música';
+    setStatus('Reproduciendo');
+  });
+  audio.addEventListener('pause', ()=>{
+    button.textContent = '🎵 Reproducir música';
+    if(audio.currentTime > 0) setStatus('Música en pausa');
+  });
+  audio.addEventListener('error', ()=>{
+    setStatus('No se encontró music.mp3');
+    button.textContent = '⚠️ Audio no disponible';
+  });
+
+  button.addEventListener('click', async ()=>{
+    if(audio.paused){
+      try{
+        await audio.play();
+      }catch(error){
+        setStatus('Verifica que el archivo se llame music.mp3');
+      }
+    }else{
+      audio.pause();
+    }
+  });
 })();
