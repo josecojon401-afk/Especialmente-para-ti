@@ -7,17 +7,21 @@
 <title>Un pequeño rincón para Madelyn</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="luxury-locked">
+<body class="visual-cover-locked">
 
-<div id="luxuryIntro" class="luxury-intro">
-  <div class="luxury-stars"></div>
-  <div class="luxury-intro-content">
-    <p class="luxury-kicker">UNA EXPERIENCIA CREADA ESPECIALMENTE PARA TI</p>
-    <h1><span>Madelyn</span></h1>
-    <p class="luxury-phrase">Hay amistades que convierten los días sencillos en recuerdos inolvidables.</p>
-    <button id="enterLuxury" class="luxury-enter">Entrar a tu regalo ✨</button>
+<section id="visualCover" class="visual-cover" aria-label="Portada del regalo para Madelyn">
+  <div class="visual-cover-inner">
+    <img src="assets/portada-principal-madelyn.png"
+         alt="Portada elegante del regalo digital para Madelyn">
+    <div class="visual-cover-actions">
+      <button id="enterVisualCover" class="visual-cover-button">
+        Entrar al regalo 💕
+      </button>
+      <p>Toca el botón para descubrir los mensajes y recuerdos.</p>
+    </div>
   </div>
-</div>
+</section>
+
 <div id="luxuryPetals" class="luxury-petals" aria-hidden="true"></div>
 <div class="luxury-music">
   <button id="luxuryMusicBtn" aria-label="Activar o desactivar música">🎵 Música</button><span id="audioStatus" class="audio-status" aria-live="polite"></span>
@@ -98,7 +102,7 @@
 
     <section class="premium-reasons"><p class="eyebrow">UN RECORDATORIO ESPECIAL</p><h3>Razones por las que eres especial</h3><p id="reasonText">Tu amistad hace que los días comunes se sientan un poco más bonitos.</p><button id="reasonBtn" class="primary">Descubrir otra razón ✦</button></section><div class="visual-preview">
       <h3>✨ Diseño especial del regalo</h3>
-      <img src="assets/regalo-madelyn-preview.png" alt="Diseño visual del regalo digital para Madelyn">
+      <img src="assets/regalo-madelyn-preview.png?v=4" alt="Diseño visual del regalo digital para Madelyn">
     </div>
     <div class="memories">
       <h3>📷 Un par de recuerdos</h3>

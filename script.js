@@ -123,8 +123,8 @@ const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate
 
 (function(){
   const body = document.body;
-  const intro = document.getElementById('luxuryIntro');
-  const enter = document.getElementById('enterLuxury');
+  const intro = null;
+  const enter = null;
   const petals = document.getElementById('luxuryPetals');
   const musicBtn = document.getElementById('legacyLuxuryMusicBtn');
   const audio = document.getElementById('legacyLuxuryAudio');
@@ -207,5 +207,25 @@ const originalOpenGift=openGift;openGift=function(){originalOpenGift();celebrate
     }else{
       audio.pause();
     }
+  });
+})();
+
+
+(function(){
+  const cover = document.getElementById('visualCover');
+  const enterButton = document.getElementById('enterVisualCover');
+  if(!cover || !enterButton) return;
+
+  enterButton.addEventListener('click', ()=>{
+    document.body.classList.remove('visual-cover-locked');
+    document.body.classList.add('luxury-ready');
+    cover.classList.add('hidden');
+
+    const giftScene = document.getElementById('giftScene');
+    const giftIntro = document.getElementById('giftIntro');
+    if(giftScene) giftScene.style.display = 'none';
+    if(giftIntro) giftIntro.classList.add('visible');
+
+    setTimeout(()=>cover.remove(),800);
   });
 })();
